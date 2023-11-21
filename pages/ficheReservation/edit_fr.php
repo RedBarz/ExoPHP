@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un utilisateur</title>
+    <title>Editer un utilisateur</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <script src="../assets/js/main.js"></script>
 </head>
-
 <body>
     <header>
         <nav>
@@ -20,7 +18,7 @@
                     <a href="./show.php">Afficher</a>
                 </li>
                 <li>
-                    <a href="./ficheReservation/create_fr.php">Créer</a>
+                    <a href="./create.php">Créer</a>
                 </li>
                 <li>
                     <a href="./edit.php">Editer</a>
@@ -31,7 +29,14 @@
             </ul>
         </nav>
     </header>
-    <form action="../assets/php/controllers/create_users.php" method="POST">
+
+    <h1>Editer un utilisateur</h1>
+
+    <form action="../assets/php/controllers/update_users.php" method="POST">
+        <div>
+            <label for="id">Id</label>
+            <input type="text" id="id" name="id">
+        </div>
         <div>
             <label for="email">Email</label>
             <input type="text" id="email" name="email">
@@ -46,6 +51,6 @@
         </div>
         <button type="submit">Envoyer</button>
     </form>
-</body>
 
+</body>
 </html>

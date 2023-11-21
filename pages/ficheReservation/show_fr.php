@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un utilisateur</title>
+    <title>Afficher les utilisateurs</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <script src="../assets/js/main.js"></script>
 </head>
-
 <body>
-    <header>
+<header>
         <nav>
             <ul>
                 <li>
@@ -20,7 +18,7 @@
                     <a href="./show.php">Afficher</a>
                 </li>
                 <li>
-                    <a href="./ficheReservation/create_fr.php">Créer</a>
+                    <a href="./create.php">Créer</a>
                 </li>
                 <li>
                     <a href="./edit.php">Editer</a>
@@ -31,21 +29,19 @@
             </ul>
         </nav>
     </header>
-    <form action="../assets/php/controllers/create_users.php" method="POST">
-        <div>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email">
-        </div>
-        <div>
-            <label for="alias">Pseudonyme</label>
-            <input type="text" id="alias" name="alias">
-        </div>
-        <div>
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <button type="submit">Envoyer</button>
-    </form>
-</body>
+    
+    <h1>Liste des utilisateurs</h1>
 
+    <?php 
+
+    require_once('../assets/php/middleware/connect.php');
+
+    $query_users = $db_connect->query('SELECT * FROM user');
+
+    foreach ($query_users as $users) {
+        echo $users['email'];
+    }
+
+    ?>
+</body>
 </html>
